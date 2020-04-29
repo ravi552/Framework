@@ -17,7 +17,6 @@ public class BrowserFactory {
 		}else if (browser.equalsIgnoreCase("firefox")) {
 			System.setProperty("webdriver.gecko.driver", "F:\\NewFrameworkMO\\Drivers\\geckodriver.exe");
 			driver = new FirefoxDriver();
-
 		}
 		else if(browser.equalsIgnoreCase("ie")) {
 			System.setProperty("webdriver.ie.driver", "F:\\NewFrameworkMO\\Drivers\\IEDriverServer.exe");
@@ -33,7 +32,6 @@ public class BrowserFactory {
 		driver.manage().timeouts().implicitlyWait(30,TimeUnit.SECONDS);
 		return driver;
 	} 
-
 	public static void quitBrowser(WebDriver driver) {
 		driver.close();
 	}
