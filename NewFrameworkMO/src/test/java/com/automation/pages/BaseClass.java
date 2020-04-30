@@ -9,6 +9,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.Parameters;
 
 import com.automation.utility.BrowserFactory;
 import com.automation.utility.ConfigDataProvider;
@@ -38,11 +39,12 @@ public class BaseClass {
 		report.attachReporter(extent);
 		Reporter.log("settings done- test can be started", true);
 	}
-	
+	@Parameters({"browser","urlTobeTested"})
 	@BeforeClass
-	public void setUp() {
+	public void setUp(String browser,String url) {
 		Reporter.log("trying to start browser and application ready", true);
-		driver=BrowserFactory.startBrowser(driver,config.getBrowser(),config.getStagingUrl());
+		//driver=BrowserFactory.startBrowser(driver,config.getBrowser(),config.getStagingUrl());
+		driver=BrowserFactory.startBrowser(driver, browser,url);
 		Reporter.log("browser and application ready", true);
 	}
 	@AfterClass

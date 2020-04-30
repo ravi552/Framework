@@ -61,14 +61,21 @@
 	<build>
 		<plugins>
 
-			<plugin>
+	 		<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-surefire-plugin</artifactId>
 				<version>3.0.0-M4</version>
 				<configuration>
+				
 					<suiteXmlFiles>
-						<suiteXmlFile>XMLfiles/testNg.xml</suiteXmlFile>
+						<suiteXmlFile>XMLfiles/${xmlFiles}</suiteXmlFile>
 					</suiteXmlFiles>
+					
+					<systemPropertyVariables>
+						<executionbrowser>${browser}</executionbrowser>
+						<appURL>${urlTobeTested}</appURL>
+					
+					</systemPropertyVariables>
 				</configuration>
 			</plugin>
 
